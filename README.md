@@ -1,5 +1,8 @@
 # Vue 3
 
+## API
+
+- [conversion devise](https://open.er-api.com/v6/latest/USD)
 ## Validation des acquis demi-journée
 
 ---
