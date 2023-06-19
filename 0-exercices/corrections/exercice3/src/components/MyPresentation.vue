@@ -1,23 +1,67 @@
+<script>
+  export default {
+    name: "MyPresentation",
+    data() {
+      return {
+        firstName: "",
+        lastName: "",
+        age: 0,
+        techno: "",
+        technos: [],
+      };
+    },
+    computed: {
+      over18() {
+        if (this.age === 0) return "";
+        return this.age >= 18 ? "Vous êtes majeur(e)" : "Vous êtes mineur(e)";
+      },
+    },
+    methods: {
+      addTechno() {
+        this.technos.push({ id: this.technos.length, label: this.techno });
+        this.techno = "";
+      },
+      remove(id) {
+        this.technos = this.technos.filter((tech) => tech.id !== id);
+      },
+      dataExist() {
+        return (
+          this.firstName.length > 0 ||
+          this.lastName.length > 0 ||
+          this.age != 0 ||
+          this.technos.length > 0
+        );
+      },
+    },
+  };
+</script>
 <template>
   <div>
     <main>
-
       <section>
         <h2>Saisie</h2>
         <div>
-          <input type="text" placeholder="Nom" v-model="lastName">
+          <input type="text" placeholder="Nom" v-model="lastName" />
         </div>
         <div>
-          <input type="text" placeholder="Prénom" v-model="firstName">
+          <input type="text" placeholder="Prénom" v-model="firstName" />
         </div>
         <div>
-          <input type="number" placeholder="Age" v-model="age">
+          <input type="number" placeholder="Age" v-model="age" />
         </div>
         <div>
-          <input v-model="techno" @keyup.enter="addTechno($event)" type="text" placeholder="Langage ou techno préférée" name="techno">
+          <input
+            v-model="techno"
+            @keyup.enter="addTechno($event)"
+            type="text"
+            placeholder="Langage ou techno préférée"
+            name="techno"
+          />
         </div>
         <div>
-          <button @click="addTechno" :disabled="techno.length === 0">Ajouter une technologie</button>
+          <button @click="addTechno" :disabled="techno.length === 0">
+            Ajouter une technologie
+          </button>
         </div>
       </section>
 
@@ -40,41 +84,6 @@
     </main>
   </div>
 </template>
-<script>
-export default {
-  name : 'MyPresentation',
-  data() {
-    return {
-      firstName : '',
-      lastName: '',
-      age: 0,
-      techno: '',
-      technos : []
-    }
-  },
-  computed: {
-    over18(){
-      if(this.age === 0) return ''
-      return this.age >= 18 ? 'Vous êtes majeur(e)': 'Vous êtes mineur(e)'
-    }
-  },
-  methods: {
-    addTechno() {
-      this.technos.push({id: this.technos.length, label: this.techno})
-      this.techno = ''
-    },
-    remove(id) {
-      this.technos = this.technos.filter(tech => tech.id !== id)
-    },
-    dataExist () {
-      return this.firstName.length > 0 || 
-        this.lastName.length > 0 ||
-        this.age != 0 ||
-        this.technos.length > 0
-    }
-  }
-}
-</script>
 <style scoped>
 main {
   display: flex;

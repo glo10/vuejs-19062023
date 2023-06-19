@@ -7,15 +7,6 @@ export default {
   name: 'App',
   components: {
     MyPresentation
-  },
-  data() {
-    return {
-      msgs: [
-        'hello vue',
-        'hello vue2',
-        'hello vue 3'
-      ]
-    }
   }
 }
 </script>
