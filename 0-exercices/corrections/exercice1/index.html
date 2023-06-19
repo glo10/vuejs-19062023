@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 1</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(value, key) in user" :key="key">
+        {{ key }} : {{ value }}
+      </li>
+    </ul>
+    <input type="text" @input.lazy="displayName" v-model="user.firstName" ref="f">
+    <button @click="displayName" :value="user.firstName">Click</button>
+  </div>
+  <script type="module">
+    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+    createApp({
+      data() {
+        return {
+          user: {
+            firstName: null,
+            lastName: 'Tshimini',
+            age: 31,
+            city: 'Paris'
+          }
+        }
+      },
+      methods: {
+        displayName(e) {
+          console.log('Avec ref', this.$refs.f.value)
+          console.log('Avec this.user.firstName', this.user.firstName)
+          console.log('Avec la directive v-bind', e.target.value)
+          console.log('--------------------')
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>
