@@ -14,6 +14,14 @@
 ## Documentation
 
 ---
+
+### Provide / Inject 
+
+Complement hors programme sur les liaisons entre composants.
+
+- [Provide / Inject](https://vuejs.org/guide/components/provide-inject.html)
+
+---
 ### Convention de nommage
 
 - [Convention de nommage des composants + best pratices](https://v3.ru.vuejs.org/style-guide/#rule-categories)
