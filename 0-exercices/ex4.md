@@ -40,6 +40,7 @@
 
 ## Bonus : optimisation appel API
 
-Pour éviter de faire des appels à l'API à chaque requête, stockez les taux en local à l'aide de localStorage.
+1. Pour éviter de faire des appels à l'API à chaque requête, stockez les taux en local à l'aide de localStorage.
 N'oubliez pas d'utiliser les fonctions `JSON.parse() et JSON.stringify` pour sérialiser et désérialiser les données.
+2. Désactivez le bouton de conversion lorsque le montant n'est pas saisi.
 
