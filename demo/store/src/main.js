@@ -14,20 +14,24 @@ const store = createStore({
     users: [],
  },
  mutations: {
-    create(state, newUser) {
-        state.users.push(newUser)
-    },
     delete(state, oldUser) {
         state.users = state.users.filter(user => user.id != oldUser.id)
+    },
+    findAll(state, users) {
+        state.users = users
     }
  },
  actions: {
-    create({commit}, newUser){
-        // logique plus complexe ici
-        commit('create', newUser) // on doit obligatoire faire un commit sinon la mutation ne pourra pas avoir lieu depuis le store
-    },
     delete({commit}, oldUser){
         commit('delete', oldUser)
+    },
+    findAll({commit}) {// recup les infos depuis l'API
+        fetch('https://api.github.com/users')
+        .then(res => res.json())
+        .then(users => {
+            console.log('users final', users)
+            commit('findAll', users)
+        })
     }
  },
  getters: {
@@ -36,7 +40,7 @@ const store = createStore({
     },
     userFiltered(state) {
         return state.users.filter(user => user.id % 2 === 0)
-    }
+    },
  }
 })
 app.use(store)
