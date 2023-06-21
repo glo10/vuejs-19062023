@@ -3,6 +3,11 @@
 ## API
 
 - [conversion devise](https://open.er-api.com/v6/latest/USD)
+
+- [API GitHub users](https://api.github.com/users)
+
+- [API GitHub one user, remplacer afontcu par le login de l'utilisateur souhaité](https://api.github.com/users/afontcu)
+
 ## Validation des acquis demi-journée
 
 ---
